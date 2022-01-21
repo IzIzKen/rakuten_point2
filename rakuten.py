@@ -8,13 +8,16 @@ import requests
 
 
 def line_send_message(message):
+    line_token = '0ixwVQ5yAmnNu7a5wNK73QKyOOiurdmYs9Dg3zpwSHv'
+
     headers = {
-        'Authorization': '0ixwVQ5yAmnNu7a5wNK73QKyOOiurdmYs9Dg3zpwSHv',
+        'Authorization': f'Bearer {line_token}',
     }
-    files = {
-        'message': (None, message),
+    data = {
+        'message': f'message: {message}',
     }
-    requests.post('https://notify-api.line.me/api/notify', headers=headers, files=files)
+    requests.post('https://notify-api.line.me/api/notify', headers=headers, data=data)
+
 
 
 # chromeDriverの設定
