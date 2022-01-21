@@ -4,6 +4,18 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+import requests
+
+
+def line_send_message(message):
+    headers = {
+        'Authorization': '0ixwVQ5yAmnNu7a5wNK73QKyOOiurdmYs9Dg3zpwSHv',
+    }
+    files = {
+        'message': (None, message),
+    }
+    requests.post('https://notify-api.line.me/api/notify', headers=headers, files=files)
+
 
 # chromeDriverの設定
 chromeOptions = webdriver.ChromeOptions()
@@ -29,6 +41,7 @@ urls = []
 for lottery in lotteries:
     urls.append(lottery.get_attribute("href"))
 
+line_send_message('楽天くじを開始します')
 for url in urls:
     driver.get(url)
     wait.until(EC.presence_of_element_located)
@@ -55,3 +68,5 @@ for url in urls:
 
 driver.close()
 driver.quit()
+
+line_send_message('楽天くじを終了します')
