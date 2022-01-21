@@ -1,0 +1,4 @@
+requests
+selenium==4.1.0
+urllib3==1.26.7
+beautifulsoup4
