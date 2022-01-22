@@ -45,11 +45,11 @@ for lottery in lotteries:
 
 line_send_message('楽天くじを開始します')
 for url in urls:
-    print(driver.page_source)
+    time.sleep(3)
     driver.get(url)
     current_url = driver.current_url
     wait.until(EC.presence_of_element_located)
-    time.sleep(3)
+    time.sleep(1)
 
     if login_flag:
         driver.find_element(By.ID, 'loginInner_u').send_keys(USERID)
