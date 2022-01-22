@@ -19,12 +19,11 @@ def line_send_message(message):
     requests.post('https://notify-api.line.me/api/notify', headers=headers, data=data)
 
 
-
 # chromeDriverの設定
 chromeOptions = webdriver.ChromeOptions()
 chromeOptions.add_argument('--window-size=1370,1000')
 chromeOptions.add_argument('--headless')
-chromeDriver = "/app/.chromedriver/bin/chromedriver"
+chromeDriver = "../chromedriver.exe"
 chrome_service = fs.Service(executable_path=chromeDriver)
 driver = webdriver.Chrome(service=chrome_service, options=chromeOptions)
 wait = WebDriverWait(driver=driver, timeout=60)
