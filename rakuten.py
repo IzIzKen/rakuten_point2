@@ -46,6 +46,7 @@ for lottery in lotteries:
 line_send_message('楽天くじを開始します')
 for url in urls:
     driver.get(url)
+    current_url = driver.current_url
     wait.until(EC.presence_of_element_located)
     time.sleep(3)
 
@@ -60,12 +61,13 @@ for url in urls:
     try:
         if len(driver.find_elements(By.ID, 'entry')) > 0:
             driver.find_element(By.ID, 'entry').click()
-            time.sleep(20)
+            wait.until(EC.url_changes(current_url))
 
     except:
-        import traceback
-
-        traceback.print_exc()
+        # import traceback
+        #
+        # traceback.print_exc()
+        print(f'error:{url}')
         pass
 
 driver.close()
