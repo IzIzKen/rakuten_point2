@@ -21,7 +21,7 @@ def line_send_message(message):
 
 # chromeDriverの設定
 chromeOptions = webdriver.ChromeOptions()
-chromeOptions.add_argument('--window-size=1370,1000')
+chromeOptions.add_argument('--window-size=1280,1080')
 chromeOptions.add_argument('--headless')
 chromeDriver = "/app/.chromedriver/bin/chromedriver"
 chrome_service = fs.Service(executable_path=chromeDriver)
