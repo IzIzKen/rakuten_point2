@@ -45,6 +45,7 @@ for lottery in lotteries:
 
 line_send_message('楽天くじを開始します')
 for url in urls:
+    print(driver.page_source)
     driver.get(url)
     current_url = driver.current_url
     wait.until(EC.presence_of_element_located)
