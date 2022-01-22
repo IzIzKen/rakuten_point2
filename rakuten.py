@@ -23,7 +23,7 @@ def line_send_message(message):
 chromeOptions = webdriver.ChromeOptions()
 chromeOptions.add_argument('--window-size=1370,1000')
 chromeOptions.add_argument('--headless')
-chromeDriver = "../chromedriver.exe"
+chromeDriver = "/app/.chromedriver/bin/chromedriver"
 chrome_service = fs.Service(executable_path=chromeDriver)
 driver = webdriver.Chrome(service=chrome_service, options=chromeOptions)
 wait = WebDriverWait(driver=driver, timeout=60)
